@@ -1,0 +1,116 @@
+<div class="task-signals-card">
+  <!-- En-tête de la séance 3 -->
+  <div class="card-header">
+    <div class="header-title">
+      <h3>⚡ TaskFlow Réactif avec Signals</h3>
+      <span class="session-badge">Séance 3 : Signals</span>
+    </div>
+    <p class="card-desc">
+      Gestion d'état moderne avec <code>signal()</code>, <code>computed()</code>, <code>update()</code> et <code>set()</code>.
+    </p>
+  </div>
+
+  <!-- Section 1 : Statistiques calculées avec computed() -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-label">Total Tâches (computed)</span>
+      <span class="stat-value primary">{{ totalTasks() }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Complétées (computed)</span>
+      <span class="stat-value success">{{ completedTasks() }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Restantes (computed)</span>
+      <span class="stat-value warning">{{ remainingTasks() }}</span>
+    </div>
+  </div>
+
+  <!-- Section 2 : Démonstrateur de compteur (signal + computed + update + set) -->
+  <div class="counter-box">
+    <div class="counter-display">
+      <span>Compteur Signal : <strong>{{ compteur() }}</strong></span>
+      <span>Double (computed) : <strong>{{ doubleCompteur() }}</strong></span>
+    </div>
+    <div class="counter-actions">
+      <button class="btn btn-sm btn-secondary" (click)="decrementerCompteur()">-1 (update)</button>
+      <button class="btn btn-sm btn-secondary" (click)="incrementerCompteur()">+1 (update)</button>
+      <button class="btn btn-sm btn-outline-primary" (click)="setCompteurCent()">Mettre à 100 (set)</button>
+      <button class="btn btn-sm btn-outline-danger" [disabled]="compteur() === 0" (click)="remettreCompteurZero()">À zéro (set)</button>
+    </div>
+  </div>
+
+  <!-- Section 3 : Formulaire d'ajout lié au Signal -->
+  <div class="actions-bar">
+    <div class="input-wrapper">
+      <input
+        #taskInput
+        type="text"
+        placeholder="Nom de la tâche (ex: Préparer le TP3)..."
+        [value]="newTaskTitle()"
+        (input)="newTaskTitle.set(taskInput.value)"
+        (keyup.enter)="addTask()"
+        class="task-input"
+      />
+    </div>
+    <button
+      class="btn btn-primary"
+      (click)="addTask()"
+      [disabled]="!newTaskTitle().trim()"
+    >
+      Ajouter (update)
+    </button>
+    <button class="btn btn-secondary" (click)="resetTasks()">
+      Réinitialiser (set)
+    </button>
+    <button
+      class="btn btn-outline-danger"
+      [disabled]="tasks().length === 0"
+      (click)="clearTasks()"
+    >
+      Vider (set)
+    </button>
+  </div>
+
+  <!-- Section 4 : Liste des tâches réactives -->
+  @if (tasks().length === 0) {
+    <div class="empty-state">
+      <p class="empty-icon">📂</p>
+      <p class="empty-text">Aucune tâche à afficher (Signal vide).</p>
+      <p class="empty-subtext">Utilisez le bouton « Réinitialiser (set) » ou ajoutez une nouvelle tâche.</p>
+    </div>
+  } @else {
+    <ul class="task-list">
+      @for (task of tasks(); track task.id) {
+        <li class="task-item" [class.completed]="task.completed">
+          <input
+            type="checkbox"
+            [checked]="task.completed"
+            (change)="toggleTask(task.id)"
+            class="task-checkbox"
+          />
+          <div class="task-info">
+            <span class="task-title">{{ task.title }}</span>
+            <span class="task-date">Échéance : {{ task.dueDate | date:'shortDate' }}</span>
+          </div>
+          <div class="task-actions">
+            <button
+              class="btn btn-sm btn-secondary"
+              (click)="renameTask(task.id, 'Tâche actualisée')"
+              title="Renommer avec update()"
+            >
+              Renommer (update)
+            </button>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteTask(task.id)"
+              title="Supprimer avec update()"
+            >
+              Supprimer (update)
+            </button>
+          </div>
+        </li>
+      }
+    </ul>
+  }
+</div>
