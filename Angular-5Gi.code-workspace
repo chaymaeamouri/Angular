@@ -1,0 +1,11 @@
+{
+  "folders": [
+    {
+      "name": "Angular-5Gi-Cours",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "window.title": "Angular 5Gi Cours - ${dirty}${activeEditorShort}"
+  }
+}
