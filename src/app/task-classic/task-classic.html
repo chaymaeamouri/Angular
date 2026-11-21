@@ -1,0 +1,70 @@
+<div class="task-classic-card">
+  <div class="card-header">
+    <div class="header-title">
+      <h3>📋 TaskFlow Classique</h3>
+      <span class="session-badge">Séance 2 : Data Binding</span>
+    </div>
+    <p class="card-desc">{{ sousTitre }}</p>
+  </div>
+
+  <!-- Saisie et Ajout (Event Binding & Template Reference Variable) -->
+  <div class="input-group">
+    <input
+      #nouvelleTacheInput
+      type="text"
+      placeholder="Entrez une nouvelle tâche à ajouter..."
+      class="task-input"
+      (keyup.enter)="ajouterTache(nouvelleTacheInput.value); nouvelleTacheInput.value = ''"
+    />
+    <button
+      class="btn btn-primary"
+      (click)="ajouterTache(nouvelleTacheInput.value); nouvelleTacheInput.value = ''"
+    >
+      ➕ Ajouter
+    </button>
+  </div>
+
+  <!-- Actions globales avec Property Binding [disabled] -->
+  <div class="controls-group">
+    <button
+      class="btn btn-outline-danger"
+      [disabled]="taches.length === 0"
+      (click)="viderTaches()"
+    >
+      🗑️ Vider la liste
+    </button>
+    <button
+      class="btn btn-outline-primary"
+      [disabled]="taches.length > 0"
+      (click)="reinitialiserTaches()"
+    >
+      🔄 Recharger les tâches
+    </button>
+    <span class="count-badge">Total : {{ taches.length }} tâche(s)</span>
+  </div>
+
+  <!-- Rendu moderne avec @for et @empty -->
+  <div class="task-list-wrapper">
+    <ul class="task-list">
+      @for (tache of taches; track $index) {
+        <li class="task-item">
+          <span class="task-index">#{{ $index + 1 }}</span>
+          <span class="task-text">{{ tache }}</span>
+          <button
+            class="btn btn-icon-delete"
+            title="Supprimer cette tâche"
+            (click)="supprimerTache($index)"
+          >
+            ✕
+          </button>
+        </li>
+      } @empty {
+        <div class="empty-state">
+          <p class="empty-icon">📭</p>
+          <p class="empty-text">Aucune tâche pour le moment !</p>
+          <p class="empty-subtext">Cliquez sur « Recharger les tâches » ou ajoutez-en une.</p>
+        </div>
+      }
+    </ul>
+  </div>
+</div>

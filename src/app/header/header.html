@@ -4,7 +4,13 @@
     <h2>{{ title }}</h2>
     <span class="badge">5Gi Angular</span>
   </div>
-  <nav class="nav-links">
-    <span>Séance 1 : Composants de base</span>
-  </nav>
+
+  <div class="header-actions">
+    <button class="btn btn-secondary" (click)="rename()">
+      ✏️ Renommer
+    </button>
+    <button class="btn btn-danger" [disabled]="!canDelete" (click)="delete()">
+      🗑️ Supprimer le titre
+    </button>
+  </div>
 </header>
