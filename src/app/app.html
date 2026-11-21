@@ -1,8 +1,6 @@
 <div class="app-layout">
-  <!-- En-tête global avec data binding -->
   <app-header></app-header>
 
-  <!-- Barre de navigation des séances pédagogiques -->
   <nav class="session-nav">
     <div class="nav-container">
       <span class="nav-title">Navigation par séance :</span>
@@ -40,7 +38,6 @@
   </nav>
 
   <main class="main-content">
-    <!-- Section Séance 1 : Composants autonomes -->
     @if (activeTab() === 'all' || activeTab() === 'seance1') {
       <section class="session-section">
         <div class="session-indicator">
@@ -51,7 +48,6 @@
       </section>
     }
 
-    <!-- Section Séance 2 : Data Binding classique -->
     @if (activeTab() === 'all' || activeTab() === 'seance2') {
       <section class="session-section">
         <div class="session-indicator">
@@ -62,7 +58,6 @@
       </section>
     }
 
-    <!-- Section Séance 3 : Signals Angular -->
     @if (activeTab() === 'all' || activeTab() === 'seance3') {
       <section class="session-section">
         <div class="session-indicator">
@@ -73,7 +68,6 @@
       </section>
     }
 
-    <!-- Section À propos -->
     @if (activeTab() === 'all' || activeTab() === 'seance1') {
       <app-about></app-about>
     }
@@ -81,6 +75,5 @@
     <router-outlet></router-outlet>
   </main>
 
-  <!-- Pied de page global -->
   <app-footer></app-footer>
 </div>

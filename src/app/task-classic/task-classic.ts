@@ -8,14 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './task-classic.css',
 })
 export class TaskClassic {
-  // Liste classique de tâches pour la démonstration Séance 2
   taches: string[] = [
     'Apprendre le data binding (interpolation, property, event)',
     'Créer la liste de tâches avec les nouvelles directives',
     'Tester le flux conditionnel et l état vide (@empty)',
   ];
 
-  // Gestion du titre de la section
   sousTitre: string = 'Gestion classique des tâches (Séance 2)';
 
   ajouterTache(nouvelleTache: string): void {

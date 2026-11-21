@@ -17,7 +17,6 @@ import { Task } from './task/task';
 export class App {
   protected readonly title = signal('5Gi - Cours Frontend Angular');
 
-  // Onglet actif : 'all' (Tous), 'seance1', 'seance2', 'seance3'
   activeTab = signal<'all' | 'seance1' | 'seance2' | 'seance3'>('all');
 
   setActiveTab(tab: 'all' | 'seance1' | 'seance2' | 'seance3'): void {

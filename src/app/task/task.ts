@@ -16,31 +16,23 @@ export interface TaskItem {
   styleUrl: './task.css',
 })
 export class Task {
-  // 1) SIGNAL PRIMAIRE : État réactif contenant le tableau des tâches.
-  //    Lecture dans le template avec tasks()
   tasks = signal<TaskItem[]>([
     { id: 1, title: 'Comprendre l architecture Standalone', dueDate: new Date('2026-11-10'), completed: true },
     { id: 2, title: 'Pratiquer le Data Binding (interpolation & events)', dueDate: new Date('2026-11-17'), completed: true },
     { id: 3, title: 'Maîtriser les Signals (signal, computed, update, set)', dueDate: new Date('2026-11-21'), completed: false },
   ]);
 
-  // Signal lié au champ de saisie utilisateur
   newTaskTitle = signal<string>('');
 
-  // Compteur interne pour les identifiants uniques
   private nextId = 4;
 
-  // 2) COMPUTED SIGNALS : Valeurs dérivées recalculées automatiquement à chaque changement
   totalTasks = computed(() => this.tasks().length);
   completedTasks = computed(() => this.tasks().filter(t => t.completed).length);
   remainingTasks = computed(() => this.totalTasks() - this.completedTasks());
 
-  // Démonstrateur de compteur avec Signals (Séance 3)
   compteur = signal(0);
   doubleCompteur = computed(() => this.compteur() * 2);
 
-  // --- 3) MÉTHODES SET() : Remplacement complet de la valeur du signal ---
-  
   clearTasks(): void {
     this.tasks.set([]);
   }
@@ -53,8 +45,6 @@ export class Task {
     ]);
     this.nextId = 4;
   }
-
-  // --- 4) MÉTHODES UPDATE() : Mise à jour basée sur l'état précédent ---
 
   addTask(): void {
     const title = this.newTaskTitle().trim();
@@ -72,7 +62,7 @@ export class Task {
       },
     ]);
 
-    this.newTaskTitle.set(''); // Vider le signal de saisie
+    this.newTaskTitle.set('');
   }
 
   deleteTask(id: number): void {
@@ -91,7 +81,6 @@ export class Task {
     );
   }
 
-  // Fonctions du Compteur Signal (Séance 3)
   incrementerCompteur(): void {
     this.compteur.update((val) => val + 1);
   }

@@ -1,5 +1,4 @@
 <div class="task-signals-card">
-  <!-- En-tête de la séance 3 -->
   <div class="card-header">
     <div class="header-title">
       <h3>⚡ TaskFlow Réactif avec Signals</h3>
@@ -10,7 +9,6 @@
     </p>
   </div>
 
-  <!-- Section 1 : Statistiques calculées avec computed() -->
   <div class="stats-grid">
     <div class="stat-card">
       <span class="stat-label">Total Tâches (computed)</span>
@@ -26,7 +24,6 @@
     </div>
   </div>
 
-  <!-- Section 2 : Démonstrateur de compteur (signal + computed + update + set) -->
   <div class="counter-box">
     <div class="counter-display">
       <span>Compteur Signal : <strong>{{ compteur() }}</strong></span>
@@ -40,7 +37,6 @@
     </div>
   </div>
 
-  <!-- Section 3 : Formulaire d'ajout lié au Signal -->
   <div class="actions-bar">
     <div class="input-wrapper">
       <input
@@ -72,7 +68,6 @@
     </button>
   </div>
 
-  <!-- Section 4 : Liste des tâches réactives -->
   @if (tasks().length === 0) {
     <div class="empty-state">
       <p class="empty-icon">📂</p>

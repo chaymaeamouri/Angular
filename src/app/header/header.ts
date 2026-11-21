@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
-  // Interpolation et liaison de propriétés
   title = 'TaskFlow';
   canDelete = false;
 

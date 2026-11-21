@@ -7,7 +7,6 @@
     <p class="card-desc">{{ sousTitre }}</p>
   </div>
 
-  <!-- Saisie et Ajout (Event Binding & Template Reference Variable) -->
   <div class="input-group">
     <input
       #nouvelleTacheInput
@@ -24,7 +23,6 @@
     </button>
   </div>
 
-  <!-- Actions globales avec Property Binding [disabled] -->
   <div class="controls-group">
     <button
       class="btn btn-outline-danger"
@@ -43,7 +41,6 @@
     <span class="count-badge">Total : {{ taches.length }} tâche(s)</span>
   </div>
 
-  <!-- Rendu moderne avec @for et @empty -->
   <div class="task-list-wrapper">
     <ul class="task-list">
       @for (tache of taches; track $index) {

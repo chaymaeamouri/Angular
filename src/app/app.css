@@ -5,7 +5,6 @@
   background-color: var(--bg-page);
 }
 
-/* Barre de navigation des séances */
 .session-nav {
   background-color: #ffffff;
   border-bottom: 1px solid var(--border);
@@ -61,7 +60,6 @@
   font-weight: 600;
 }
 
-/* Contenu principal */
 .main-content {
   flex: 1;
   max-width: 900px;
