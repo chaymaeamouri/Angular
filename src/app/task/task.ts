@@ -1,4 +1,5 @@
 import { Component, signal, computed } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 export interface TaskItem {
   id: number;
@@ -10,7 +11,7 @@ export interface TaskItem {
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './task.html',
   styleUrl: './task.css',
 })

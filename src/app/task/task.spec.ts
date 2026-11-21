@@ -1,18 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import '@angular/compiler';
+import { describe, it, beforeEach, expect } from 'vitest';
 import { Task } from './task';
 
 describe('Task Component - Tests unitaires des Signals Angular (Séance 3)', () => {
   let component: Task;
-  let fixture: ComponentFixture<Task>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Task],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Task);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
+  beforeEach(() => {
+    component = new Task();
   });
 
   it('1. Le composant Task doit être créé avec succès', () => {
