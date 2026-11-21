@@ -1,19 +1,19 @@
-# Angular Cours & Pratiques - 5Gi 🚀
+# Angular Cours & Pratiques - 5Gi
 
-Dépôt officiel des pratiques et travaux réalisés lors des séances de travaux pratiques du cours Frontend Angular (Filière 5Gi).
+Ce projet a été réalisé par moi dans le cadre du cours Frontend Angular (Filière 5Gi). Il regroupe l'ensemble des pratiques et exercices que j'ai développés au fil des séances, allant de la création de composants jusqu'à la gestion réactive avec les Signals Angular.
 
 ---
 
-## 📋 Progression Pédagogique par Séance
+## Progression Pédagogique par Séance
 
-### 📦 Séance 1 : Prise en main et Composants Autonomes (Standalone)
+### Séance 1 : Prise en main et Composants Autonomes (Standalone)
 * **Concepts :**
   * Architecture Angular moderne (v19/v21) sans NgModules.
   * Création des composants autonomes (`standalone: true`).
   * Intégration dans `app.ts` via le tableau `imports: [Header, Footer, Home, About]`.
   * Structure des composants : Template HTML, styles CSS scoped, et classe TypeScript.
 
-### 📋 Séance 2 : Data Binding & Directives de Contrôle de flux (TaskFlow)
+### Séance 2 : Data Binding & Directives de Contrôle de flux (TaskFlow)
 * **Concepts :**
   * **Interpolation** : Affichage dynamique de données (`{{ title }}`).
   * **Property Binding** : Contrôle dynamique des attributs (`[disabled]="!canDelete"`).
@@ -24,7 +24,7 @@ Dépôt officiel des pratiques et travaux réalisés lors des séances de travau
     * `@empty` : Gestion native de l'état vide.
     * `@if` : Rendu conditionnel.
 
-### ⚡ Séance 3 (21/11/2026) : Gestion Réactive avec les Signals Angular
+### Séance 3 (21/11/2026) : Gestion Réactive avec les Signals Angular
 * **Concepts :**
   * **`signal<T>(valeurInitiale)`** : Déclaration de variables d'état réactives (`tasks`, `newTaskTitle`, `compteur`).
   * **`computed(() => ...)`** : Calcul automatique et dérivé de l'état (`totalTasks`, `completedTasks`, `doubleCompteur`).
@@ -34,7 +34,7 @@ Dépôt officiel des pratiques et travaux réalisés lors des séances de travau
 
 ---
 
-## 🛠️ Installation et Exécution
+## Installation et Exécution
 
 ```bash
 # 1. Cloner le dépôt
@@ -53,11 +53,11 @@ npm test
 ```
 
 L'application sera accessible dans le navigateur à l'adresse suivante :  
-👉 **[http://localhost:4200/](http://localhost:4200/)**
+**[http://localhost:4200/](http://localhost:4200/)**
 
 ---
 
-## 🧪 Tests Unitaires
+## Tests Unitaires
 Le projet inclut une suite de tests unitaires pour valider les composants et les signaux :
 * `src/app/task/task.spec.ts` : 13 scénarios de test couvrant les opérations `signal`, `computed`, `set` et `update`.
 * `src/app/app.spec.ts` : Tests du composant racine et de la navigation par onglets.
